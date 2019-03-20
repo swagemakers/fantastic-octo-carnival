@@ -16,7 +16,5 @@ sum = 0
 for i in 0 .. month-2 
   sum += days[i]
 end 
-
 sum += date
-
 puts "Номер даты: #{sum}"
