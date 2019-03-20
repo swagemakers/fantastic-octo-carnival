@@ -13,7 +13,7 @@ leap_year = (year % 4 == 0 && year % 100 != 0) || year % 400 == 0
 days [1] = 29 if leap_year
 
 sum = 0
-for i in 0 .. month-2 
+days.take(month - 2)
   sum += days[i]
 end 
 sum += date
