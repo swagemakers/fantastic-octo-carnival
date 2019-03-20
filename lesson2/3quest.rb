@@ -1,7 +1,7 @@
-fibonacci = [0,1]
+fibonacci = [0, 1]
 num = 1 
 
-while num <=100 do 
+while num <= 100 
   fibonacci << num
   num = fibonacci[-2] + fibonacci[-1]
 end
