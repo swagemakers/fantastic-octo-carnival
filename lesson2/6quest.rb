@@ -19,9 +19,9 @@ end
 puts cart
 
 cart.each do |product_name, product_info|
-  sum = value[:price] * value[:quantity]
+  sum = product_name[:price] * product_info[:quantity]
   puts value
-  puts "#{key}: #{value[:ptice]} * #{value[:quantity]} = #{sum}"
+  puts "#{product_name}: #{value[:price]} * #{value[:quantity]} = #{sum}"
   total += sum
 end
 puts "Итого: #{total}"
