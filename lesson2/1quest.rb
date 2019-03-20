@@ -10,6 +10,6 @@ days_in_month = {
     september: 30,
     october: 31, 
     november: 30,
-    december: 31}
-  
-    days_in_month.each {|month, days| puts month if days == 30}
+    december: 31
+    }
+days_in_month.each {|month, days| puts month if days == 30}
