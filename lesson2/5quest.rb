@@ -14,7 +14,5 @@ days [1] = 29 if leap_year
 
 sum = 0
 days.take(month - 2)
-  sum += days[i]
-end 
-sum += date
+date + days.take(month - 1).inject(0, :+)
 puts "Номер даты: #{sum}"
