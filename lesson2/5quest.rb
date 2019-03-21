@@ -9,10 +9,10 @@ month = gets.to_i
 puts"Введите год: "
 year = gets.to_i 
 
-days [1] = 29 if (year % 4 == 0 && year % 100 != 0) || year % 400 == 0
+leap_year = (year % 4 == 0 && year % 100 != 0) || year % 400 == 0
+days [1] = 29 if leap_year
 
-sum = 0
-days.take(month - 1) #считает дни во всех месяцах до введенного
+sum = 0#считает дни во всех месяцах до введенного
 sum = date + days.take(month - 1).inject(0, :+) #складывает все дни за 
 #предыдущие месяцы и количество дней указанных в введном месяце
 puts "Номер даты: #{sum}"
