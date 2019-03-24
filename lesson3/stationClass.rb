@@ -3,7 +3,7 @@ class Station
 
   def initialization (station_name)
     @station_name = station_name #when creating a new object needs a station name as a parameter
-    @train = [] #a massive ti store the trains that will be crossing this station possibly?
+    @train = [] #a massive to store the trains that will be crossing this station possibly?
   end
 
   def add_trains(train)
@@ -23,6 +23,6 @@ class Station
   end
 
   def to_s
-    title #makes dure that the program reads the title as a string
+    title #makes sure that the program reads the title as a string
   end
 end
