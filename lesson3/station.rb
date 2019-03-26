@@ -16,8 +16,4 @@ class Station
   def train_types(type)
     @train.select { |train| train.type == type } #identifies trains type
   end
-
-  def show_train
-    puts @train = [] #shows all the trains at the station
-  end
 end
