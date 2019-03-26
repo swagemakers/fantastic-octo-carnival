@@ -48,14 +48,14 @@ class Train
   def move_forward
     return unless next_station 
     current_station.remove_train(self)
-    current_station += 1
+    @current_station += 1
     current_station.add_train(self)
   end
 
   def move_backwards
    return unless previous_station
       current_station.train_remove(self)
-      current_station -= 1
+      @current_station -= 1
       current_station.add_train(self)
   end
 end
