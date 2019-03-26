@@ -6,13 +6,12 @@ class Route
   end
 
   def add_station(station)
-    @station.add (insert)
+    @stations.add(insert)
   end
 
   def delete_station(station)
-    @station.delete(station) if @station != first_station && station != last_station
-  else
-    puts "Impossible to remove"
+    return if [stations.first, stations.last].include?(station)
+    stations.delete(station)
   end
 
   def show_stations
