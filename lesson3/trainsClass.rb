@@ -12,8 +12,8 @@ class Train
     @speed = 0 #train doesn't move
   end
 
-  def increase_speed
-    @speed == 5 #speeds the train uo to 5
+  def increase_speed(@speed = 5)
+    @speed += speed #speeds the train uo to 5
   end
 
   def add_carriage
@@ -37,31 +37,25 @@ class Train
 
   def next_station
     return unless @route
-    @route.stations[@next_station]
+    @route.stations[@current_station + 1]
   end
 
   def previous_station
     return unless @route
-    @route.station[@previous_station]
+    @route.station[@current_station - 1]
   end
 
   def move_forward
-    if @next_station != 0
-      @current_station.train_remove
-      @current_station += 1
-      @current_station.add_train
-    else
-      puts "Nowhere to go"
-    end
+    return unless next_station 
+    current_station.remove_train(self)
+    current_station += 1
+    current_station.add_train(self)
   end
 
   def move_backwards
-    if @previous_station != 0
-      @current_station.train_remove
-      @current_station -= 1
-      @current_station.add_train
-    else
-      puts "Nowhere to go"
-    end
+   return unless previous_station
+      current_station.train_remove(self)
+      current_station -= 1
+      current_station.add_train(self)
   end
 end
