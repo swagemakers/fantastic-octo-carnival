@@ -11,7 +11,7 @@ class Route
 
   def delete_stations(station)
     return if [stations.first, stations.last].include?(station)
-    stations.delete(station)
+    @stations.delete(station)
   end
 
   def show_stations
