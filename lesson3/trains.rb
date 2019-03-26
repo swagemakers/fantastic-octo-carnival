@@ -12,7 +12,7 @@ class Train
     @speed = 0 #train doesn't move
   end
 
-  def increase_speed(@speed = 5)
+  def increase_speed(speed = 5)
     @speed += speed #speeds the train uo to 5
   end
 
