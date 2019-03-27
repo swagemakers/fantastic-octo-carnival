@@ -5,16 +5,16 @@ class Route
     @stations = [first_station, last_station] #when creating a new object needs station names as parameters
   end
 
-  def add_stations(station)
+  def add_station(station)
     @stations.insert(-2, station)
   end
 
-  def delete_stations(station)
+  def delete_station(station)
     return if [stations.first, stations.last].include?(station)
     @stations.delete(station)
   end
 
   def show_stations
-    @stations.each { |station| puts station.station_name }
+    @stations.each { |station| puts station.name }
   end
 end
