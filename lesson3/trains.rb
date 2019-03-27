@@ -42,7 +42,7 @@ class Train
 
   def previous_station
     return unless @route
-    @route.station[@current_station - 1]
+    @route.stations[@current_station - 1] if @current_station.positive?
   end
 
   def move_forward
