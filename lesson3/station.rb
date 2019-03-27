@@ -11,7 +11,7 @@ class Station
   end
 
   def remove_train(train)
-    @trains.remove(train) #removes trains from the station
+    @trains.delete(train) #removes trains from the station
   end
 
   def trains_types(type)
