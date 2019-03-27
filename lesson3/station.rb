@@ -1,7 +1,7 @@
 class Station
   attr_reader :train, :name #trains and station names are only available for reading
 
-  def initialize (station_name)
+  def initialize(name)
     @name = name #when creating a new object needs a station name as a parameter
     @trains = []
   end
