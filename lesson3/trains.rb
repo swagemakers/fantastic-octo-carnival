@@ -58,3 +58,4 @@ class Train
    @current_station -= 1
    current_station.add_train(self)
   end
+end
