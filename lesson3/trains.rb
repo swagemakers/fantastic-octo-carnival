@@ -3,7 +3,7 @@ class Train
 
   def initialize(carriages, number, type)
     @number = number
-    @carriage = 0
+    @carriages = carriages
     @speed = 0
     @type = type
   end
@@ -17,11 +17,11 @@ class Train
   end
 
   def add_carriage
-    @carriages += 1 if @speed == 0 #adds a new carriage to the train if it doesn't move
+    @carriages + 1 if @speed == 0 #adds a new carriage to the train if it doesn't move
   end
 
   def remove_carriages
-    @carriages -= 1 if @speed = 0 && @carriages != 0 #deletes a carriage from the train if it doesn't move and the number of carriages is not 0
+    @carriages - 1 if @speed = 0 && @carriages != 0 #deletes a carriage from the train if it doesn't move and the number of carriages is not 0
   end
 
   def route=(value)
@@ -46,7 +46,7 @@ class Train
   end
 
   def move_forward
-    return unless next_station 
+    return unless next_station
     current_station.remove_train(self)
     @current_station += 1
     current_station.add_train(self)
@@ -54,8 +54,7 @@ class Train
 
   def move_backwards
    return unless previous_station
-   current_station.train_remove(self)
+   current_station.remove_train(self)
    @current_station -= 1
    current_station.add_train(self)
   end
-end
