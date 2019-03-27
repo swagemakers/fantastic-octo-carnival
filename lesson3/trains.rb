@@ -1,7 +1,7 @@
 class Train
-  attr_reader :speed, :type, :carriage, :number
+  attr_reader :speed, :type, :carriages, :number
 
-  def initialize (carriages, number, type)
+  def initialize(carriages, number, type)
     @number = number
     @carriage = 0
     @speed = 0
@@ -54,8 +54,8 @@ class Train
 
   def move_backwards
    return unless previous_station
-      current_station.train_remove(self)
-      @current_station -= 1
-      current_station.add_train(self)
+   current_station.train_remove(self)
+   @current_station -= 1
+   current_station.add_train(self)
   end
 end
