@@ -154,5 +154,5 @@ class Main
     end
   end
 
-  def move_forward
 end
+      
