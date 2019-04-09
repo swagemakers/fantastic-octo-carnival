@@ -6,6 +6,7 @@ class Route
   end
 
   def add_station(station)
+    return if @stations.include?(station)
     @stations.insert(-2, station)
   end
 
@@ -16,5 +17,9 @@ class Route
 
   def show_stations
     @stations.each { |station| puts station.name }
+  end
+
+  def to_s
+    "#{stations.first} - #{stations.last}"
   end
 end
