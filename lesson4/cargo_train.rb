@@ -9,8 +9,4 @@ class CargoTrain < Train #cargo is a subclass of train
   def attachable_carriage?(carriage)
     carriage.is_a?(CargoCarriage) #adds a carriage only if it's a cargo carriage
   end
-
-  def to_s
-    super
-  end
 end
