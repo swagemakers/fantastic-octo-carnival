@@ -73,7 +73,7 @@ class Main
     @stations << Station.new(name)
   end
 
-  def show_stations
+  def show_collection
     @stations.each.with_index(1) do |station, index|
      puts "#{index} - #{station.name}"
     end
@@ -93,7 +93,7 @@ class Main
       case gets.to_i
       when 1 then create_trains
       when 2 then manage_trains
-      when 3 then move_trains
+      when 3 then move_train
       when 0 then break
       end
    end
@@ -106,7 +106,7 @@ class Main
     puts "0 – Выход"
   end
 
-  def create_trains
+  def create_train
     puts "Введите номер поезда: "
     number = gets.to_i
     puts "Введите тип поезда (1 - пассажирский, 2 – грузовой): "
@@ -115,8 +115,6 @@ class Main
     when 1 then @trains << PassengerTrain.new(number)
     when 2 then @trains << CargoTrain.new(number)
     end
-
-    @trains.each { |train| puts train.number }
   end
 
   def manage_trains
@@ -141,7 +139,7 @@ class Main
   end
 
   def add_carriages(train)
-    if train.is_a?(PassengerTrain)
+    if train.is_a?(PassengerTrain) && train.speed == 0
       train.add_carriages(PassengerCarriage.new)
     elsif train.is_a?(CargoTrain)
       train.add_carriages(CargoCarriage.new)
