@@ -77,7 +77,7 @@ class Main
     show_collection(@stations)
   end
 
-  def show_trains
+  def show_station_trains
     show_collection(@stations)
     station = select_from_collection(@stations)
     return unless station
