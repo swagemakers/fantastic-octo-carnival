@@ -1,4 +1,4 @@
-class PassangerTrain < Train #passanger is a train subclass
+class PassengerTrain < Train #passanger is a train subclass
 
   attr_reader :number, :type #the number and type of the train are only available for reading
 
