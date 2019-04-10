@@ -1,4 +1,4 @@
-def PassengerCarriage < Carriage
+class PassengerCarriage < Carriage
 
   attr_reader :train
 
