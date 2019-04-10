@@ -17,7 +17,7 @@ class Main
 
   def show_collection(collection)
     collection.each.with_index(1) do |item, index|
-      puts "#{index} - #{item}"
+      puts "#{index} - #{item.to_s}"
     end
   end
 
@@ -134,6 +134,7 @@ class Main
   def show_manage_trains_menu
     puts "1 – Добавить вагоны"
     puts "2 – Удалить вагоны"
+    puts "0 – Выход"
   end
 
   def add_carriages(train)
