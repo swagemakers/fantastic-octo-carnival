@@ -73,10 +73,8 @@ class Main
     @stations << Station.new(name)
   end
 
-  def show_collection
-    @stations.each.with_index(1) do |station, index|
-     puts "#{index} - #{station.name}"
-    end
+  def show_stations
+    show_collection(@stations)
   end
 
   def show_trains
