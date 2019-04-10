@@ -7,7 +7,7 @@ class PassengerTrain < Train #passanger is a train subclass
     @type = "Passanger" #defines the type as passanger
   end
 
-  def attachCarriage? (carriage)
+  def attachable_carriage? (carriage)
     carriage.is_a? (PassangerCarriage) #attaches a carriage only if it's a passanger one
   end
 end
