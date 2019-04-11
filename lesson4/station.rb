@@ -17,6 +17,10 @@ class Station
   def trains_types(type)
     @trains.select { |train| train.type == type } #identifies trains type
   end
+  
+  def station_trains(station) 
+    @trains.each { |train| puts train.number }
+  end 
 
   def to_s
     name
