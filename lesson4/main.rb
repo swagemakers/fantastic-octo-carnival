@@ -81,7 +81,7 @@ class Main
     show_collection(@stations)
     station = select_from_collection(@stations)
     return unless station
-    station.station_trains(station)
+    station.trains.each { |train| puts train.number }
   end
 
   def trains_menu
