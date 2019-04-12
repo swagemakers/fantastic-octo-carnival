@@ -54,7 +54,7 @@ class Main
       case gets.to_i
       when 1 then create_station
       when 2 then show_stations
-      when 3 then show_trains
+      when 3 then show_station_trains
       when 0 then break
       end
     end
@@ -89,7 +89,7 @@ class Main
       show_trains_menu
 
       case gets.to_i
-      when 1 then create_trains
+      when 1 then create_train
       when 2 then manage_trains
       when 3 then move_train
       when 0 then break
@@ -152,7 +152,7 @@ class Main
     train.delete_carriages(carriage)
   end
 
-  def move_trains
+  def move_train
     show_collection(@trains)
     puts "Выберите поезд: "
     train = select_from_collection(@trains)
@@ -238,7 +238,7 @@ class Main
     route.delete_station(station)
   end
 
-    def assign_route
+  def assign_route
     show_collection(@routes)
     puts "Выберите маршрут: "
     route = select_from_collection(@routes)
