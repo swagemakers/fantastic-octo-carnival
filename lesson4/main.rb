@@ -39,6 +39,8 @@ class Main
       end
     end
   end
+        
+  private
 
   def show_main_menu
     puts "1 – Меню станций"
