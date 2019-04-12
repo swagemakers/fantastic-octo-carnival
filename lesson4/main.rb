@@ -173,7 +173,7 @@ class Main
     puts "0 – Выход"
   end
 
- def routes_menu
+  def routes_menu
     loop do
       show_routes_menu
 
