@@ -3,7 +3,7 @@ total = 0
 
 loop do 
   puts "Введите название товара или 'стоп', чтобы закончить ввод: "
-  title = gets.chomp 
+  title = gets.chomp.downcase 
 
   break if title == 'стоп'
 
@@ -18,12 +18,10 @@ end
 
 puts cart
 
-cart.each do |key, value|
-  sum = value[:price] * value[:quantity]
-  puts value
-  puts "#{key}: #{value [:ptice]} * #{value [:quantity]} = #{sum}"
-
+cart.each do |product_name, product_info|
+  sum = product_info[:price] * product_info[:quantity]
+  puts product_info
+  puts "#{product_name}: #{product_info[:price]} * #{product_info[:quantity]} = #{sum}"
   total += sum
 end
-
-  puts "Итого: #{total}"
+puts "Итого: #{total}"
