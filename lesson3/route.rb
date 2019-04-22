@@ -6,7 +6,10 @@ class Route
   end
 
   def add_station(station)
+<<<<<<< HEAD
     return if @stations.include?(station)
+=======
+>>>>>>> f0878afdd5d3ab7cc7e7c016109fa12bc50ea276
     @stations.insert(-2, station)
   end
 
@@ -18,8 +21,11 @@ class Route
   def show_stations
     @stations.each { |station| puts station.name }
   end
+<<<<<<< HEAD
 
   def to_s
     "#{stations.first} - #{stations.last}"
   end
+=======
+>>>>>>> f0878afdd5d3ab7cc7e7c016109fa12bc50ea276
 end

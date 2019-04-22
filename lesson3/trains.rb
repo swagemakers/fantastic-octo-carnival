@@ -1,9 +1,15 @@
 class Train
   attr_reader :speed, :type, :carriages, :number
 
+<<<<<<< HEAD
   def initialize(number, type)
     @number = number
     @carriages = []
+=======
+  def initialize(carriages, number, type)
+    @number = number
+    @carriages = carriages
+>>>>>>> f0878afdd5d3ab7cc7e7c016109fa12bc50ea276
     @speed = 0
     @type = type
   end
@@ -16,6 +22,7 @@ class Train
     @speed += speed #speeds the train uo to 5
   end
 
+<<<<<<< HEAD
   def add_carriages(carriage)
     if attachable_carriage?(carriage)
       @carriages << Carriage.new#adds a new carriage to the train if it doesn't move
@@ -24,6 +31,14 @@ class Train
 
   def delete_carriages(carriage)
     carriages.delete(carriage) #deletes a carriage from the train if it doesn't move and the number of carriages is not 0
+=======
+  def add_carriage
+    @carriages + 1 if @speed == 0 #adds a new carriage to the train if it doesn't move
+  end
+
+  def remove_carriages
+    @carriages - 1 if @speed = 0 && @carriages != 0 #deletes a carriage from the train if it doesn't move and the number of carriages is not 0
+>>>>>>> f0878afdd5d3ab7cc7e7c016109fa12bc50ea276
   end
 
   def route=(value)
@@ -60,8 +75,11 @@ class Train
    @current_station -= 1
    current_station.add_train(self)
   end
+<<<<<<< HEAD
 
   def to_s
     number
   end
+=======
+>>>>>>> f0878afdd5d3ab7cc7e7c016109fa12bc50ea276
 end

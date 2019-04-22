@@ -4,6 +4,7 @@ class PassengerTrain < Train #passanger is a train subclass
 
   def initialize(number)
     super(number, :passenger) #recieves all the train methods as its subclass
+<<<<<<< HEAD
     @type = "Passanger" #defines the type as passanger
   end
 
@@ -13,5 +14,11 @@ class PassengerTrain < Train #passanger is a train subclass
 
   def to_s
     super
+=======
+  end
+
+  def attachable_carriage?(carriage)
+    carriage.is_a?(PassengerCarriage) #attaches a carriage only if it's a passanger one
+>>>>>>> f0878afdd5d3ab7cc7e7c016109fa12bc50ea276
   end
 end

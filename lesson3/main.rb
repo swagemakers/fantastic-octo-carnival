@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 require_relative "station.rb"
 require_relative "trains.rb"
 require_relative "route.rb"
@@ -13,12 +14,37 @@ class Main
     @stations = []
     @routes = []
     @trains = []
+=======
+require_relative 'stationClass.rb'
+require_relative 'routeClass.rb'
+require_relative 'trainClass.rb'
+require_relative 'PassengerTrain.rb'
+require_relative 'CargoTrain.rb'
+require_relative 'Carriage.rb'
+require_relative 'PassengerCarriage.rb'
+require_relative 'CargoCarriage.rb'
+
+class Main
+  def menu
+    loop do
+      case
+      when 1 then StationMenu
+      when 2 then RouteMenu
+      when 3 then TrainMenu
+      when 0 then break
+      end
+    end
+>>>>>>> f0878afdd5d3ab7cc7e7c016109fa12bc50ea276
   end
 
   def show_collection(collection)
     collection.each.with_index(1) do |item, index|
+<<<<<<< HEAD
       puts "#{index} - #{item}"
     end
+=======
+    puts "#{index} - #{item}"
+>>>>>>> f0878afdd5d3ab7cc7e7c016109fa12bc50ea276
   end
 
   def select_from_collection(collection)
@@ -27,6 +53,7 @@ class Main
     collection[index - 1]
   end
 
+<<<<<<< HEAD
   def run
     loop do
       show_main_menu
@@ -52,6 +79,11 @@ class Main
       show_stations_menu
 
       case gets.to_i
+=======
+  def StationMenu
+    loop do
+      case
+>>>>>>> f0878afdd5d3ab7cc7e7c016109fa12bc50ea276
       when 1 then create_station
       when 2 then show_stations
       when 3 then show_trains
@@ -60,6 +92,7 @@ class Main
     end
   end
 
+<<<<<<< HEAD
   def show_stations_menu
     puts "1 – Создать станцию"
     puts "2 – Список станций"
@@ -130,11 +163,51 @@ class Main
       case gets.to_i
       when 1 then add_carriages(train)
       when 2 then delete_carriages(train)
+=======
+  def create_station
+    puts "Введите название станции: "
+    name = gets.chomp
+    Station.new(name)
+  end
+
+  def show_stations
+    @stations.each { |station| puts station.name }
+  end
+
+  def show_trains(name)
+    @trains.each { |train| puts trains.number }
+  end
+
+  def RouteMenu
+    loop do
+      case
+      when 1 then create_route
+      when 2 then manage_route
+      when 3 then assign_route
       when 0 then break
       end
     end
   end
 
+  def create_route (first_station, last_station)
+      @stations = [first_station, last_station]
+  end
+
+  def manage_route
+    show_collection(@routes)
+    route = select_from_collection(@routes)
+    puts "Введите номер маршрута: "
+    loop do
+      case index = gets.to_i
+      when 1 then add_station(@route)
+      when 2 then remove_staion(@route)
+>>>>>>> f0878afdd5d3ab7cc7e7c016109fa12bc50ea276
+      when 0 then break
+      end
+    end
+  end
+
+<<<<<<< HEAD
   def show_manage_trains_menu
     puts "1 – Добавить вагоны"
     puts "2 – Удалить вагоны"
@@ -165,11 +238,35 @@ class Main
       case gets.to_i
       when 1 then train.move_forward
       when 2 then train.move_backwards
+=======
+  def add_station
+    @stations.insert(-2, station)
+  end
+
+  def delete_station
+    return if [stations.first, stations.last].include?(station)
+    @stations.delete(station)
+  end
+
+  def assign_route
+    @route = index
+    @current_station = 0
+    @route.stations[@current_station].add_train(self)
+  end
+
+  def TrainMenu
+    loop do
+      case
+      when 1 then create_train
+      when 2 then manage_train
+      when 3 then move_train
+>>>>>>> f0878afdd5d3ab7cc7e7c016109fa12bc50ea276
       when 0 then break
       end
     end
   end
 
+<<<<<<< HEAD
   def show_transporting_menu
     puts "1 – Движение вперед"
     puts "2 – Движение назад"
@@ -184,11 +281,33 @@ class Main
       when 1 then create_routes
       when 2 then manage_routes
       when 3 then assign_route
+=======
+  def add_train
+    puts "Введите номер поезда: "
+    number = gets.to_i
+    puts "Выберите тип поезда: "
+    case
+    when 1 then PassengerTrain.new(number)
+    when 2 then CargoTrain.new(number)
+    when 0 then break
+    end
+  end
+
+  def manage_train
+    show.collection(@trains)
+    train = select_from_collection(@trains)
+    puts "Введите номер поезда: "
+    loop do
+      case index = gets.to_i
+      when 1 then add_carriage
+      when 2 then delete_carriage
+>>>>>>> f0878afdd5d3ab7cc7e7c016109fa12bc50ea276
       when 0 then break
       end
     end
   end
 
+<<<<<<< HEAD
   def show_routes_menu
     puts "1 — Создать маршрут"
     puts "2 – Редактировать маршрут"
@@ -216,11 +335,30 @@ class Main
       case gets.to_i
       when 1 then add_stations(route)
       when 2 then delete_stations(route)
+=======
+  def add_carriage
+    @carriages += 1 if @speed == 0
+  end
+
+  def delete_carriage
+    @carriages -= 1 if @speed = 0 && @carriages != 0
+  end
+
+  def move_train
+    show.collection(@trains)
+    train = select_from_collection(@trains)
+    puts "Введите номер поезда: "
+    loop do
+      case index = gets.to_i
+      when 1 then move_forward
+      when 2 then move_backwards
+>>>>>>> f0878afdd5d3ab7cc7e7c016109fa12bc50ea276
       when 0 then break
       end
     end
   end
 
+<<<<<<< HEAD
   def show_manage_routes_menu
     puts "1 – Добавить станцию"
     puts "2 – Удалить станцию"
@@ -252,3 +390,7 @@ class Main
     train.route=route
   end
 end
+=======
+end
+      
+>>>>>>> f0878afdd5d3ab7cc7e7c016109fa12bc50ea276

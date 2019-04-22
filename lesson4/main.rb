@@ -39,6 +39,11 @@ class Main
       end
     end
   end
+<<<<<<< HEAD
+=======
+        
+  private
+>>>>>>> f0878afdd5d3ab7cc7e7c016109fa12bc50ea276
 
   def show_main_menu
     puts "1 – Меню станций"
@@ -173,7 +178,11 @@ class Main
     puts "0 – Выход"
   end
 
+<<<<<<< HEAD
  def routes_menu
+=======
+  def routes_menu
+>>>>>>> f0878afdd5d3ab7cc7e7c016109fa12bc50ea276
     loop do
       show_routes_menu
 
