@@ -1,10 +1,10 @@
 class Train
   attr_reader :speed, :type, :carriages, :number
 
-  @@all = {:number => :train}
+  @@all = {}
 
   def self.find(number)
-    return unless @@all.include?(train)
+    @@all[number]
   end
 
   def initialize(number, type)
@@ -12,7 +12,7 @@ class Train
     @carriages = []
     @speed = 0
     @type = type
-    @@all << self
+    @@all[number] = self
   end
 
   def stop
