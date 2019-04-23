@@ -6,10 +6,12 @@ module InstanceCounter
   end
 
   module ClassMethods
+    attr_accessor :instances
 
-    def instance_quantity
+    def instances
       @instances ||= 0
     end
+
   end
 
   protected

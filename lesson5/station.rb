@@ -3,14 +3,14 @@ class Station
 
   @@all = []
 
-  def self.all 
+  def self.all
     return @@all
   end
 
   def initialize(name)
     @name = name #when creating a new object needs a station name as a parameter
     @trains = []
-    self.class.all << self
+    @@all << self
   end
 
   def add_train(train)
