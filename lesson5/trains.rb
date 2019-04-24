@@ -1,3 +1,6 @@
+
+require_relative "instance_counter.rb"
+
 class Train
   attr_reader :speed, :type, :carriages, :number
 
