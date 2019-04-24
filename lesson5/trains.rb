@@ -1,4 +1,3 @@
-
 require_relative "instance_counter.rb"
 
 class Train
