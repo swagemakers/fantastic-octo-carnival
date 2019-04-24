@@ -4,7 +4,7 @@ class Station
   @@all = []
 
   def self.all 
-    return @@all
+    @@all
   end
 
   def initialize(name)
