@@ -1,3 +1,5 @@
+require_relative "instance_counter.rb"
+
 class Station
   attr_reader :trains, :name #trains and station names are only available for reading
 
