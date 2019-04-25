@@ -4,6 +4,8 @@ class Train
   attr_reader :speed, :type, :carriages, :number
 
   @@all = {}
+  
+  include InstanceCounter
 
   def self.find(number)
     @@all[number]
@@ -15,6 +17,7 @@ class Train
     @speed = 0
     @type = type
     @@all[number] = self
+    register_instance
   end
 
   def stop
