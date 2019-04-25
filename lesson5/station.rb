@@ -4,6 +4,8 @@ class Station
   attr_reader :trains, :name #trains and station names are only available for reading
 
   @@all = []
+  
+  include InstanceCounter
 
   def self.all 
     @@all
@@ -13,6 +15,7 @@ class Station
     @name = name #when creating a new object needs a station name as a parameter
     @trains = []
     @@all << self
+    register_instance
   end
 
   def add_train(train)
