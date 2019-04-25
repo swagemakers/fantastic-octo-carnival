@@ -2,7 +2,7 @@ module InstanceCounter
 
   def self.included
     extend ClassMethods
-    include InstanceMethods
+    send.include InstanceMethods
   end
 
   module ClassMethods
