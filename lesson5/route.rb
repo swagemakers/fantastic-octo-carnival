@@ -2,9 +2,12 @@ require_relative "instance_counter.rb"
 
 class Route
   attr_reader :stations #stations are only available for reading
+  
+  include InstanceCounter
 
   def initialize (first_station, last_station)
     @stations = [first_station, last_station] #when creating a new object needs station names as parameters
+    register_instance
   end
 
   def add_station(station)
