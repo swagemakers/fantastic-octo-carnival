@@ -12,7 +12,11 @@ class Train
   attr_reader :speed, :type, :carriages, :number
 
   @@all = {}
+<<<<<<< HEAD:lesson6/trains.rb
 
+=======
+  
+>>>>>>> c2c7f6851b5c709c820401424f6665496dbb517a:lesson5/trains.rb
   include InstanceCounter
 
   def self.find(number)
@@ -26,7 +30,10 @@ class Train
     @type = type
     @@all[number] = self
     register_instance
+<<<<<<< HEAD:lesson6/trains.rb
     validate!
+=======
+>>>>>>> c2c7f6851b5c709c820401424f6665496dbb517a:lesson5/trains.rb
   end
 
   def stop
@@ -85,6 +92,7 @@ class Train
   def to_s
     number
   end
+<<<<<<< HEAD:lesson6/trains.rb
 
   def valid?
     validate!
@@ -102,4 +110,6 @@ class Train
     raise ArgumentError, REQUIRES_TYPE if @type == 0
     #raise ArgumentError, WRONG_TYPE unless type.between?(1, 2)
   end
+=======
+>>>>>>> c2c7f6851b5c709c820401424f6665496dbb517a:lesson5/trains.rb
 end

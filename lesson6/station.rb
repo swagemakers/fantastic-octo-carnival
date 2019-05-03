@@ -6,10 +6,16 @@ class Station
   attr_reader :trains, :name #trains and station names are only available for reading
 
   @@all = []
+  
+  include InstanceCounter
 
+<<<<<<< HEAD:lesson6/station.rb
   include InstanceCounter
 
   def self.all
+=======
+  def self.all 
+>>>>>>> c2c7f6851b5c709c820401424f6665496dbb517a:lesson5/station.rb
     @@all
   end
 
@@ -18,7 +24,10 @@ class Station
     @trains = []
     @@all << self
     register_instance
+<<<<<<< HEAD:lesson6/station.rb
     validate!
+=======
+>>>>>>> c2c7f6851b5c709c820401424f6665496dbb517a:lesson5/station.rb
   end
 
   def add_train(train)
