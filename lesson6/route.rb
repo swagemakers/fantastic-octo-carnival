@@ -4,15 +4,14 @@ class Route
 
   EPMTY_STATION = "Укажите начальную станцию"
   INVALID_STATION = "Станция не зарегистрирована"
-  #NO_EXTREME_STATIONS = "Укажите начальную и конечную станции маршрута"
   attr_reader :stations #stations are only available for reading
 
   include InstanceCounter
 
   def initialize (first_station, last_station)
     @stations = [first_station, last_station] #when creating a new object needs station names as parameters
-    register_instance
     validate!
+    register_instance
   end
 
   def add_station(station)
@@ -45,7 +44,6 @@ class Route
   def validate!
     raise ArgumentError, EMPTY_STATION if @stations.any? { |station| station.nil? }
     raise ArgumentError, INVALID_STATION unless @stations.all? { |station| station.is_a?(Station) }
-    #raise ArgumentError, NO_LAST_STATION if @stations.any? { |station| station.nil? }
-    #raise ArgumentError, NO_EXTREME_STATIONS if
+
   end
 end

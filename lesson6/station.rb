@@ -1,33 +1,24 @@
 require_relative "instance_counter.rb"
 
 class Station
-  Requires_Name = "У станции должно быть название"
-
   attr_reader :trains, :name #trains and station names are only available for reading
 
-  @@all = []
-  
-  include InstanceCounter
+  Requires_Name = "У станции должно быть название"
 
-<<<<<<< HEAD:lesson6/station.rb
+  @@all = []
+
   include InstanceCounter
 
   def self.all
-=======
-  def self.all 
->>>>>>> c2c7f6851b5c709c820401424f6665496dbb517a:lesson5/station.rb
     @@all
   end
 
   def initialize(name)
     @name = name #when creating a new object needs a station name as a parameter
     @trains = []
+    validate!
     @@all << self
     register_instance
-<<<<<<< HEAD:lesson6/station.rb
-    validate!
-=======
->>>>>>> c2c7f6851b5c709c820401424f6665496dbb517a:lesson5/station.rb
   end
 
   def add_train(train)
