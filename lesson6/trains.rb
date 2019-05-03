@@ -13,7 +13,11 @@ class Train
 
   @@all = {}
 <<<<<<< HEAD:lesson6/trains.rb
+<<<<<<< HEAD:lesson6/trains.rb
 
+=======
+  
+>>>>>>> c2c7f6851b5c709c820401424f6665496dbb517a:lesson5/trains.rb
 =======
   
 >>>>>>> c2c7f6851b5c709c820401424f6665496dbb517a:lesson5/trains.rb
@@ -31,7 +35,10 @@ class Train
     @@all[number] = self
     register_instance
 <<<<<<< HEAD:lesson6/trains.rb
+<<<<<<< HEAD:lesson6/trains.rb
     validate!
+=======
+>>>>>>> c2c7f6851b5c709c820401424f6665496dbb517a:lesson5/trains.rb
 =======
 >>>>>>> c2c7f6851b5c709c820401424f6665496dbb517a:lesson5/trains.rb
   end
@@ -93,6 +100,7 @@ class Train
     number
   end
 <<<<<<< HEAD:lesson6/trains.rb
+<<<<<<< HEAD:lesson6/trains.rb
 
   def valid?
     validate!
@@ -110,6 +118,8 @@ class Train
     raise ArgumentError, REQUIRES_TYPE if @type == 0
     #raise ArgumentError, WRONG_TYPE unless type.between?(1, 2)
   end
+=======
+>>>>>>> c2c7f6851b5c709c820401424f6665496dbb517a:lesson5/trains.rb
 =======
 >>>>>>> c2c7f6851b5c709c820401424f6665496dbb517a:lesson5/trains.rb
 end
