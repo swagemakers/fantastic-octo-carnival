@@ -2,7 +2,7 @@ require_relative "instance_counter.rb"
 
 class Route
 
-  EPMTY_STATION = "Укажите начальную станцию"
+  EMPTY_STATION = "Укажите начальную станцию"
   INVALID_STATION = "Станция не зарегистрирована"
   attr_reader :stations #stations are only available for reading
 

@@ -3,7 +3,7 @@ require_relative "instance_counter.rb"
 class Station
   attr_reader :trains, :name #trains and station names are only available for reading
 
-  Requires_Name = "У станции должно быть название"
+  REQUIRES_NAME = "У станции должно быть название"
 
   @@all = []
 
@@ -47,6 +47,6 @@ class Station
   protected
 
   def validate!
-    raise ArgumentError, Requires_Name if @name.empty?
+    raise ArgumentError, REQUIRES_NAME if @name.empty?
   end
 end

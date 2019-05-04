@@ -3,7 +3,6 @@ require_relative "instance_counter.rb"
 class Train
 
   REQUIRES_TYPE = "У поезда должен быть тип"
-  REQUIRES_BOTH_ARGUMENTS = "У поезда должен быть номер и тип"
   NUMBER_FORM= /^[а-я0-9]{3}-?[а-я0-9]{2}$/i #три буквы или цифры, возможно тире, две буквы или цифры
   NUMBER_FORM_WRONG = "Неверный формат номера"
 
@@ -94,7 +93,6 @@ class Train
   protected
 
   def validate!
-    raise ArgumentError, REQUIRES_BOTH_ARGUMENTS if @number == 0 && @type == 0
     raise ArgumentError, NUMBER_FORM_WRONG if @number !~ NUMBER_FORM
     raise ArgumentError, REQUIRES_TYPE if @type.nil?
   end

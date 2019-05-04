@@ -24,10 +24,9 @@ class Main
   end
 
   def select_from_collection(collection)
-    index = gets.to_i
-    ''.empty?.to_s
+    index = gets.to_i - 1
     return if index.negative?
-    collection[index - 1]
+    collection[index]
   end
 
   def run
@@ -214,11 +213,11 @@ class Main
     puts "Введите последнюю станцию: "
     last_station = select_from_collection(@stations)
     Route.new(first_station, last_station) if first_station.is_a?(Station) && last_station.is_a?(Station)
+    @routes << Route.new(first_station, last_station)
     puts "Маршрут #{first_station} #{last_station} успешно создан"
   rescue ArgumentError => e
     puts e
     retry
-    @routes << Route.new(first_station, last_station)
   end
 
   def manage_routes
