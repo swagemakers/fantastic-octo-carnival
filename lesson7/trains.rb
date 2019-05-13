@@ -27,11 +27,11 @@ class Train
   end
 
   def stop
-    @speed = 0 #train doesn't move
+    @speed = 0
   end
 
   def increase_speed(speed = 5)
-    @speed += speed #speeds the train uo to 5
+    @speed += speed
   end
 
   def add_carriage(carriage)
@@ -41,7 +41,7 @@ class Train
   end
 
   def delete_carriages(carriage)
-    @carriages.delete(carriage) #deletes a carriage from the train if it doesn't move and the number of carriages is not 0
+    @carriages.delete(carriage)
   end
 
   def route=(value)

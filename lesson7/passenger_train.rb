@@ -1,13 +1,13 @@
-class PassengerTrain < Train #passanger is a train subclass
+class PassengerTrain < Train
 
-  attr_reader :number, :type, :total_space, :carriage #the number and type of the train are only available for reading
+  attr_reader :number, :type, :total_space, :carriage
 
   def initialize(number)
-    super(number, :passenger) #recieves all the train methods as its subclass#defines the type as passanger
+    super(number, :passenger)
   end
 
   def attachable_carriage?(carriage)
-    carriage.is_a?(PassengerCarriage) #adds a carriage only if it's a cargo carriage
+    carriage.is_a?(PassengerCarriage)
   end
 
   def to_s

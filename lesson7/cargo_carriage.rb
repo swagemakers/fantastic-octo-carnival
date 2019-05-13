@@ -2,14 +2,14 @@ class CargoCarriage < Carriage
 
   NOT_ENOUGH_SPACE = "Недостаточно свободного места"
 
-  attr_reader :number, :type, :total_space, :carriage #the number and type of the train are only available for reading
+  attr_reader :number, :type, :total_space, :carriage
 
   def initialize(number)
-    super(number, :cargo) #recieves all the train methods as its subclass#defines the type as passanger
+    super(number, :cargo)
   end
 
   def attachable_carriage?(carriage)
-    carriage.is_a?(CargoCarriage) #adds a carriage only if it's a cargo carriage
+    carriage.is_a?(CargoCarriage)
   end
 
   def to_s
