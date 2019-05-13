@@ -4,10 +4,8 @@ class PassengerCarriage < Carriage
 
   attr_reader :train
 
-  def initialize(available_space)
-    @available_space = available_space
-    #@quantity = quantity
-    #q@not_available = 0
+  def initialize(total_space)
+    @total_space = total_space
   end
 
 end

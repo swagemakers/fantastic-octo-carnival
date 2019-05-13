@@ -34,10 +34,10 @@ class Train
     @speed += speed #speeds the train uo to 5
   end
 
-  def add_carriages(carriage)
-    if attachable_carriage?(carriage)
-      @carriages << Carriage.new(available_space)#adds a new carriage to the train if it doesn't move
-    end
+  def add_carriage(carriage)
+  return unless speed.zero?
+  return unless attachable_carriage?(carriage)
+    @carriages << carriage
   end
 
   def delete_carriages(carriage)

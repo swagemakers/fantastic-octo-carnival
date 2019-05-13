@@ -154,11 +154,11 @@ class Main
 
   def add_carriages(train)
     puts "Введите вместимость вагона:"
-      available_space = gets.to_i
+      total_space = gets.to_i
     if train.is_a?(PassengerTrain) && train.speed == 0
-      train.add_carriages(PassengerCarriage.new(available_space))
+      train.add_carriage(PassengerCarriage.new(total_space))
     elsif train.is_a?(CargoTrain)
-      train.add_carriages(CargoCarriage.new(available_space))
+      train.add_carriage(CargoCarriage.new(total_space))
     end
     puts "Вагон добавлен"
   end
@@ -173,10 +173,11 @@ class Main
   def occupy(train)
     puts "Выберите вагон:"
     show_collection(train.carriages)
-    carriage = select_from_collection(train.carriage)
-    puts "Введите количество занимаемого места:"
-    quantity = gets.to_i
-    carriage.occupy_seats(quantity)
+    carriage = select_from_collection(train.carriages)
+      puts "Введите количество занимаемого места:"
+      value = gets.to_i
+      carriage.occupy_space(value)
+      puts "#{carriage.available_space} свободного места осталось"
   rescue => e
     puts e.message
   end
