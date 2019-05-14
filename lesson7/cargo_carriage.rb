@@ -2,11 +2,7 @@ class CargoCarriage < Carriage
 
   NOT_ENOUGH_SPACE = "Недостаточно свободного места"
 
-  attr_reader :number, :type, :total_space, :carriage
-
-  def initialize(number)
-    super(number, :cargo)
-  end
+  attr_reader :total_space
 
   def attachable_carriage?(carriage)
     carriage.is_a?(CargoCarriage)

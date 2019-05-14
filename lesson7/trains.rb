@@ -35,8 +35,8 @@ class Train
   end
 
   def add_carriage(carriage)
-  return unless speed.zero?
-  return unless attachable_carriage?(carriage)
+    return unless speed.zero?
+    return unless attachable_carriage?(carriage)
     @carriages << carriage
   end
 
