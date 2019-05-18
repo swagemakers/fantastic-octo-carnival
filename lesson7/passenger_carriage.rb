@@ -2,8 +2,6 @@ class PassengerCarriage < Carriage
 
   NOT_ENOUGH_SPACE = "Недостаточно свободного места"
 
-  attr_reader :total_space
-
   def attachable_carriage?(carriage)
     carriage.is_a?(PassengerCarriage)
   end

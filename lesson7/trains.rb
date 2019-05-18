@@ -40,6 +40,18 @@ class Train
     @carriages << carriage
   end
 
+  def each_carriage
+    carriages.each.with_index(1) do |carriage, index|
+      puts "#{index} - #{carriage.to_s}"
+    end
+  end
+
+  def select_carriage(carriages)
+    index = gets.to_i - 1
+    return if index.negative?
+    carriages[index]
+  end
+
   def delete_carriages(carriage)
     @carriages.delete(carriage)
   end

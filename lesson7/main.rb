@@ -90,7 +90,7 @@ class Main
     show_collection(@stations)
     station = select_from_collection(@stations)
     return unless station
-    station.trains.each { |train| puts train.number }
+    station.each_train
   end
 
   def trains_menu
@@ -164,7 +164,7 @@ class Main
   end
 
   def delete_carriages(train)
-    show_collection(train.carriages)
+    train.each_carriage
     carriage = select_from_collection(train.carriages)
     return unless carriage
     train.delete_carriages(carriage)
@@ -172,12 +172,12 @@ class Main
 
   def occupy(train)
     puts "Выберите вагон:"
-    show_collection(train.carriages)
+    train.each_carriage
     carriage = select_from_collection(train.carriages)
-      puts "Введите количество занимаемого места:"
-      value = gets.to_i
-      carriage.occupy_space(value)
-      puts "#{carriage.available_space} свободного места осталось"
+    puts "Введите количество занимаемого места:"
+    value = gets.to_i
+    carriage.occupy_space(value)
+    puts "#{carriage.available_space} свободного места осталось"
   rescue => e
     puts e.message
   end

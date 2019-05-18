@@ -27,12 +27,22 @@ class Station
     @carriages << carriage
   end
 
+  def add_train(train)
+    @trains << train
+  end
+
   def remove_train(train)
     @trains.delete(train) #removes trains from the station
   end
 
   def trains_types(type)
     @trains.select { |train| train.type == type } #identifies trains type
+  end
+
+  def each_train
+    trains.each.with_index(1) do |train, index|
+      puts "#{index} - #{train.to_s}"
+    end
   end
 
   def to_s
