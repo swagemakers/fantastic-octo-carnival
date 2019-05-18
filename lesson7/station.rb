@@ -36,13 +36,11 @@ class Station
   end
 
   def trains_types(type)
-    @trains.select { |train| train.type == type } #identifies trains type
+    @trains.select {|train| train.type == type } #identifies trains type
   end
 
   def each_train
-    trains.each.with_index(1) do |train, index|
-      puts "#{index} - #{train.to_s}"
-    end
+    trains.each {|train| yield(train)}
   end
 
   def to_s

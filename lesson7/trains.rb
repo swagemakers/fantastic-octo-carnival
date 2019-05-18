@@ -41,9 +41,7 @@ class Train
   end
 
   def each_carriage
-    carriages.each.with_index(1) do |carriage, index|
-      puts "#{index} - #{carriage.to_s}"
-    end
+    carriages.each {|carriage| yield(carriage)}
   end
 
   def select_carriage(carriages)
