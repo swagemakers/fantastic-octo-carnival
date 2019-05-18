@@ -174,9 +174,13 @@ class Main
     puts "Выберите вагон:"
     show_collection(train.carriages)
     carriage = select_from_collection(train.carriages)
+    if carriage.is_a?(PassengerCarriage)
+        carriage.occupy_space(_value = 1)
+    else
     puts "Введите количество занимаемого места:"
       value = gets.to_i
       carriage.occupy_space(value)
+    end
       puts "#{carriage.available_space} свободного места осталось"
   rescue => e
     puts e.message
