@@ -41,13 +41,7 @@ class Train
   end
 
   def each_carriage
-    carriages.each {|carriage| yield(carriage)}
-  end
-
-  def select_carriage(carriages)
-    index = gets.to_i - 1
-    return if index.negative?
-    carriages[index]
+    carriages.each { |carriage| yield(carriage) }
   end
 
   def delete_carriages(carriage)

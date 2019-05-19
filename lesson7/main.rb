@@ -175,9 +175,9 @@ class Main
     show_collection(train.carriages)
     carriage = select_from_collection(train.carriages)
     if carriage.is_a?(PassengerCarriage)
-        carriage.occupy_space(_value = 1)
+        carriage.occupy_space
     else
-    puts "Введите количество занимаемого места:"
+      puts "Введите количество занимаемого места:"
       value = gets.to_i
       carriage.occupy_space(value)
     end

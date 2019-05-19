@@ -21,12 +21,6 @@ class Station
     register_instance
   end
 
-  def add_carriage(carriage)
-    return unless speed.zero?
-    return unless attachable_carriage?(carriage)
-    @carriages << carriage
-  end
-
   def add_train(train)
     @trains << train
   end
@@ -40,7 +34,7 @@ class Station
   end
 
   def each_train
-    trains.each {|train| yield(train)}
+    trains.each { |train| yield(train) }
   end
 
   def to_s
