@@ -1,10 +1,11 @@
-require_relative "instance_counter.rb"
+# frozen_string_literal: true
+
+require_relative 'instance_counter.rb'
 
 class Train
-
-  REQUIRES_TYPE = "У поезда должен быть тип"
-  NUMBER_FORM= /^[а-я0-9]{3}-?[а-я0-9]{2}$/i #три буквы или цифры, возможно тире, две буквы или цифры
-  NUMBER_FORM_WRONG = "Неверный формат номера"
+  REQUIRES_TYPE = 'У поезда должен быть тип'
+  NUMBER_FORM = /^[а-я0-9]{3}-?[а-я0-9]{2}$/i.freeze
+  NUMBER_FORM_WRONG = 'Неверный формат номера'
 
   attr_reader :speed, :type, :carriages, :number
 
@@ -37,6 +38,7 @@ class Train
   def add_carriage(carriage)
     return unless speed.zero?
     return unless attachable_carriage?(carriage)
+
     @carriages << carriage
   end
 
@@ -56,31 +58,36 @@ class Train
 
   def current_station
     return unless @route
+
     @route.stations[@current_station]
   end
 
   def next_station
     return unless @route
+
     @route.stations[@current_station + 1]
   end
 
   def previous_station
     return unless @route
+
     @route.stations[@current_station - 1] if @current_station.positive?
   end
 
   def move_forward
     return unless next_station
+
     current_station.remove_train(self)
     @current_station += 1
     current_station.add_train(self)
   end
 
   def move_backwards
-   return unless previous_station
-   current_station.remove_train(self)
-   @current_station -= 1
-   current_station.add_train(self)
+    return unless previous_station
+
+    current_station.remove_train(self)
+    @current_station -= 1
+    current_station.add_train(self)
   end
 
   def to_s
@@ -90,7 +97,7 @@ class Train
   def valid?
     validate!
     true
-  rescue
+  rescue StandardError
     false
   end
 

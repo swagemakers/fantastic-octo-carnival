@@ -1,9 +1,11 @@
-require_relative "instance_counter.rb"
+# frozen_string_literal: true
+
+require_relative 'instance_counter.rb'
 
 class Station
-  attr_reader :trains, :name #trains and station names are only available for reading
+  attr_reader :trains, :name
 
-  REQUIRES_NAME = "У станции должно быть название"
+  REQUIRES_NAME = 'У станции должно быть название'
 
   @@all = []
 
@@ -14,7 +16,7 @@ class Station
   end
 
   def initialize(name)
-    @name = name #when creating a new object needs a station name as a parameter
+    @name = name
     @trains = []
     validate!
     @@all << self
@@ -26,11 +28,11 @@ class Station
   end
 
   def remove_train(train)
-    @trains.delete(train) #removes trains from the station
+    @trains.delete(train)
   end
 
   def trains_types(type)
-    @trains.select {|train| train.type == type } #identifies trains type
+    @trains.select { |train| train.type == type }
   end
 
   def each_train
@@ -44,7 +46,7 @@ class Station
   def valid?
     validate!
     true
-  rescue
+  rescue StandardError
     false
   end
 

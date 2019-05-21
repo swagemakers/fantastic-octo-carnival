@@ -1,13 +1,14 @@
-class CargoTrain < Train #cargo is a subclass of train
+# frozen_string_literal: true
 
-  attr_reader :number, :type #the number and type of the train are only available for reading
+class CargoTrain < Train
+  attr_reader :number, :type
 
   def initialize(number)
-    super(number, :cargo) #recieves all the train methods as a subclass
+    super(number, :cargo)
   end
 
   def attachable_carriage?(carriage)
-    carriage.is_a?(CargoCarriage) #adds a carriage only if it's a cargo carriage
+    carriage.is_a?(CargoCarriage)
   end
 
   def to_s

@@ -1,6 +1,7 @@
-class CargoCarriage < Carriage
+# frozen_string_literal: true
 
-  NOT_ENOUGH_SPACE = "Недостаточно свободного места"
+class CargoCarriage < Carriage
+  NOT_ENOUGH_SPACE = 'Недостаточно свободного места'
 
   def to_s
     super

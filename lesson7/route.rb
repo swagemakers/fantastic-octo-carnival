@@ -1,26 +1,29 @@
-require_relative "instance_counter.rb"
+# frozen_string_literal: true
+
+require_relative 'instance_counter.rb'
 
 class Route
-
-  EMPTY_STATION = "Укажите начальную станцию"
-  INVALID_STATION = "Станция не зарегистрирована"
-  attr_reader :stations #stations are only available for reading
+  EMPTY_STATION = 'Укажите начальную станцию'
+  INVALID_STATION = 'Станция не зарегистрирована'
+  attr_reader :stations
 
   include InstanceCounter
 
-  def initialize (first_station, last_station)
-    @stations = [first_station, last_station] #when creating a new object needs station names as parameters
+  def initialize(first_station, last_station)
+    @stations = [first_station, last_station]
     validate!
     register_instance
   end
 
   def add_station(station)
     return if @stations.include?(station)
+
     @stations.insert(-2, station)
   end
 
   def delete_station(station)
     return if [stations.first, stations.last].include?(station)
+
     @stations.delete(station)
   end
 
@@ -35,14 +38,14 @@ class Route
   def validate?
     validate!
     true
-  rescue
+  rescue StandardError
     false
   end
 
   protected
 
   def validate!
-    raise ArgumentError, EMPTY_STATION if @stations.any? { |station| station.nil? }
+    raise ArgumentError, EMPTY_STATION if @stations.any?(&:nil?)
     raise ArgumentError, INVALID_STATION unless @stations.all? { |station| station.is_a?(Station) }
   end
 end
