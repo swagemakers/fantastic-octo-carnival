@@ -27,7 +27,7 @@ module Validation
 
   protected
 
-  def validate_precence(name, precence)
+  def validate_precence(name)
     raise PresenceError if @name.nil? || @name = ''
   end
 
