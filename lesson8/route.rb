@@ -9,7 +9,7 @@ class Route
   attr_reader :stations
 
   include InstanceCounter
-  extend Accsessors
+  extend Accessors
 
   strongly_typed_accessor :first_station, Station
   strongly_typed_accessor :last_station, Station

@@ -5,6 +5,10 @@ class Carriage
 
   attr_reader :total_space
 
+  extend Accessors
+
+  accessor_with_history :value
+
   def initialize(total_space)
     @total_space = total_space
     @occupied_space = 0
