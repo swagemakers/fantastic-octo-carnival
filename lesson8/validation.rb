@@ -20,7 +20,7 @@ module Validation
     def valid?
       validate!
       true
-    rescue StandardError
+    rescue #error type
       false
     end
   #end?
