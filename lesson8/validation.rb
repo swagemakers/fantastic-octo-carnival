@@ -18,11 +18,11 @@ module Validation
       end
 
       define_method validate_type("#{name}, #{type}")
-        raise TypeError unless @name.is_a?(type)
+        raise TypeError unless ("@#{name}").is_a?(type)
       end
 
       define_method validate_format("#{name}, #{format}")
-        raise FormatError if @name !~ format
+        raise FormatError if ("@#{name}") !~ format
       end
     end
   end
