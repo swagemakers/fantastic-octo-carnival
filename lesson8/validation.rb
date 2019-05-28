@@ -3,6 +3,7 @@ module Validation
   PresenceError = 'Не указано значение'
   TypeError = 'Не указан тип'
   FormatError = 'Неверный формат'
+  format = /A-Z/.i.freeze
 
   def self.included(base)
     base.extend ClassMethods
