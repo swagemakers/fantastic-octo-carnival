@@ -13,15 +13,15 @@ module Validation
   module ClassMethods
     def validate(name, type, format) #gets the validation_type smh
 
-      define_method validate_precence(name)
-        raise PresenceError if @name.nil? || @name = ''
+      define_method validate_precence("#{name}")
+        raise PresenceError if ("@#{name}").nil? || @name = ''
       end
 
-      define_method validate_type(name, type)
+      define_method validate_type("#{name}, #{type}")
         raise TypeError unless @name.is_a?(type)
       end
 
-      define_method validate_format(name, format)
+      define_method validate_format("#{name}, #{format}")
         raise FormatError if @name !~ format
       end
     end
@@ -31,7 +31,7 @@ module Validation
     def valid?
       validate!
       true
-    rescue #error type
+    rescue StandardError
       false
     end
   end
