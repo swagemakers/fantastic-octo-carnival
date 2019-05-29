@@ -2,6 +2,7 @@
 
 require_relative 'instance_counter.rb'
 require_relative 'accessors.rb'
+require_relative 'validation.rb'
 
 class Station
   attr_reader :trains, :name
@@ -11,7 +12,8 @@ class Station
   @@all = []
 
   include InstanceCounter
-  extend Accsessors
+  extend Accessors
+  extend Validation
 
   def self.all
     @@all
@@ -50,11 +52,5 @@ class Station
     true
   rescue StandardError
     false
-  end
-
-  protected
-
-  def validate!
-    raise ArgumentError, REQUIRES_NAME if @name.empty?
   end
 end

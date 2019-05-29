@@ -3,9 +3,9 @@
 require_relative 'instance_counter.rb'
 
 class Train
-  #REQUIRES_TYPE = 'У поезда должен быть тип'
-  #NUMBER_FORM = /^[а-я0-9]{3}-?[а-я0-9]{2}$/i.freeze
-  #NUMBER_FORM_WRONG = 'Неверный формат номера'
+  # REQUIRES_TYPE = 'У поезда должен быть тип'
+  # NUMBER_FORM = /^[а-я0-9]{3}-?[а-я0-9]{2}$/i.freeze
+  # NUMBER_FORM_WRONG = 'Неверный формат номера'
 
   attr_reader :speed, :type, :carriages, :number
 
@@ -96,17 +96,17 @@ class Train
     number
   end
 
-  #def valid?
-   # validate!
-    #true
-  #rescue StandardError
-   # false
-  #end
+  # def valid?
+  # validate!
+  # true
+  # rescue StandardError
+  # false
+  # end
 
-  #protected
+  # protected
 
-  #def validate!
-   # raise ArgumentError, NUMBER_FORM_WRONG if @number !~ NUMBER_FORM
-    #raise ArgumentError, REQUIRES_TYPE if @type.nil?
-  #end
+  # def validate!
+  # raise ArgumentError, NUMBER_FORM_WRONG if @number !~ NUMBER_FORM
+  # raise ArgumentError, REQUIRES_TYPE if @type.nil?
+  # end
 end

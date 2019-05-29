@@ -7,20 +7,20 @@ class Carriage
 
   extend Accessors
 
-  accessor_with_history :value
+  accessor_with_history :occupied_space
 
   def initialize(total_space)
     @total_space = total_space
-    @occupied_space = 0
+    self.occupied_space = 0
   end
 
   def occupy_space(value)
     raise NOT_ENOUGH_SPACE if value > available_space
 
-    @occupied_space += value
+    self.occupied_space += value
   end
 
   def available_space
-    @total_space - @occupied_space
+    @total_space - occupied_space
   end
 end
