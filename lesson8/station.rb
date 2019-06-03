@@ -7,13 +7,11 @@ require_relative 'validation.rb'
 class Station
   attr_reader :trains, :name
 
-  REQUIRES_NAME = 'У станции должно быть название'
-
   @@all = []
 
   include InstanceCounter
   extend Accessors
-  extend Validation
+  include Validation
 
   def self.all
     @@all
@@ -22,7 +20,6 @@ class Station
   def initialize(name)
     @name = name
     @trains = []
-    validate!
     @@all << self
     register_instance
   end
@@ -40,17 +37,10 @@ class Station
   end
 
   def each_train
-    trains.each { |train| yield(train) }
+    @trains.each { |train| yield(train) }
   end
 
   def to_s
     name
-  end
-
-  def valid?
-    validate!
-    true
-  rescue StandardError
-    false
   end
 end

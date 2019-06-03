@@ -1,49 +1,54 @@
 # frozen_string_literal: true
 
 module Validation
-  PresenceError = 'Не указано значение'
-  TypeError = 'Не указан тип'
-  FormatError = 'Неверный формат'
-  # format = /A-Z/.i.freeze
-
   def self.included(base)
     base.extend ClassMethods
-    base.include InstanceMethods
+    base.send :include, InstanceMethods
   end
 
   module ClassMethods
+
+    attr_reader :validations
+
     def validate(name, type, format)
       @validations ||= {}
-      @validations << { name: name, type: type, format: format }
+      @validations[name] << { name: name, type: type, format: format }
     end
   end
 
   module InstanceMethods
-    def valid?
+    PRECENCE_ERROR = 'Не указано значение'
+    TYPE_ERROR = 'Не указан тип'
+    FORMAT_ERROR = 'Неверный формат'
+    format = /A-Z/
+
+    def valid?(*attr)
       validate!
       true
     rescue StandardError
       false
     end
 
-    protected
 
-    def validate! # not finished
-      self.class.validates
-      # should decide what validation to do
-      # based on the pararmeters it got
+    def validate!
+      self.class.validations.each do |name, validations|
+        attr_value = instance_variable_get("@#{name}")
+        validations.each do|validation|
+          send(validation [:type], attr_value, validation [:format])
+        end
+      end
     end
 
-    def validate_precence(_name)
-      raise PresenceError if @name.nil? || @name == ''
+    def precence_validate(name)
+      raise PRECENCE_ERROR if value.nil? || value == ''
     end
 
-    def validate_type(_name, type)
-      raise TypeError unless @name.is_a?(type)
+    def type_validate(name, type)
+      raise TYPE_ERROR unless value.is_a?(type)
     end
 
-    def validate_format(_name, format)
-      raise FormatError if @name !~ format
+    def format_validate(name, format)
+      raise FORMAT_ERROR if value !~format
     end
   end
 end
