@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 module Accessors
   attr_reader :attr_name
 
@@ -39,3 +37,4 @@ module Accessors
     define_method(name_with_history.to_s) { instance_variable_get("@#{name_with_history.to_s}") }
   end
 end
+

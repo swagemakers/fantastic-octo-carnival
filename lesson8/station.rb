@@ -13,6 +13,8 @@ class Station
   extend Accessors
   include Validation
 
+  validate :name, :precence
+
   def self.all
     @@all
   end
@@ -21,6 +23,7 @@ class Station
     @name = name
     @trains = []
     @@all << self
+    validate!
     register_instance
   end
 
