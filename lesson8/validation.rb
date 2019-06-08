@@ -10,7 +10,7 @@ module Validation
     attr_reader :validations
 
     def validate(name, type, options = nil)
-      @validations = []
+      @validations ||= []
       @validations << { name: name, type: type, options: options }
     end
   end
@@ -28,24 +28,22 @@ module Validation
     end
 
     def validate!
-      self.class.validations.each do |name, validations|
-        attr_value = instance_variable_get("@#{name}")
+      self.class.validations.each do |validation|
+        attr_value = instance_variable_get("@#{validation[:name]}")
         method_name = "#{validation[:type]}_validate"
-        validations.each do |validation|
-         send(method_name, attr_value, validation[:options])
-        end
+        send(method_name, attr_value, validation[:options])
       end
     end
 
-    def precence_validate(name, _)
+    def precence_validate(value, _)
      raise PRECENCE_ERROR if value.nil? || value == ''
     end
 
-    def type_validate(name, type)
+    def type_validate(value, type)
      raise TYPE_ERROR unless value.is_a?(type)
     end
 
-    def format_validate(name, format)
+    def format_validate(value, format)
      raise FORMAT_ERROR if value !~ format
     end
   end
